@@ -1,0 +1,191 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "minecraft:player",
+      "materials": {
+        "default": "entity_alphatest",
+        "cape": "entity_alphatest",
+        "animated": "player_animated",
+
+        "fire":"player_fire_uv",
+
+        "armor": "armor",
+        "leather_armor": "leather_armor_model"
+      },
+      "textures": {
+        "default": "textures/entity/steve",
+        "cape": "textures/entity/cape_invisible",
+
+        "leather": "textures/models/armor/cloth_1",
+        "leather_leggings": "textures/models/armor/cloth_2",
+
+        "chain": "textures/models/armor/chain_1",
+        "chain_leggings": "textures/models/armor/chain_2",
+        "iron": "textures/models/armor/iron_1",
+        "iron_leggings": "textures/models/armor/iron_2",
+        "diamond": "textures/models/armor/diamond_1",
+        "diamond_leggings": "textures/models/armor/diamond_2",
+        "gold": "textures/models/armor/gold_1",
+        "gold_leggings": "textures/models/armor/gold_2",
+        "turtle": "textures/models/armor/turtle_1",
+        "elytra": "textures/models/armor/elytra",
+        "netherite": "textures/models/armor/netherite_1",
+        "netherite_leggings": "textures/models/armor/netherite_2",
+
+        "fire": "textures/flame_atlas"
+      },
+      "geometry": {
+        "default": "geometry.humanoid.custom",
+        "cape": "geometry.cape",
+
+        "helmet": "geometry.player.armor.helmet1",
+        "chestplate": "geometry.player.armor.chestplate1",
+        "leggings": "geometry.player.armor.leggings1",
+        "boots": "geometry.player.armor.boots1",
+        "elytra": "geometry.elytra1",
+
+        "fire": "geometry.fire"
+      },
+      "scripts": {
+        "scale": "query.is_in_ui ? 1.0 : 0.9375",
+        "initialize": [
+          "variable.is_holding_right = 0.0;",
+          "variable.is_blinking = 0.0;",
+          "variable.last_blink_time = 0.0;",
+          "variable.hand_bob = 0.0;",
+          "variable.enchanted_helmet = 0.0;",
+          "variable.enchanted_chestplate = 0.0;",
+          "variable.enchanted_leggings = 0.0;",
+          "variable.enchanted_boots = 0.0;",
+
+          "variable.third_person_render = 0.0;",
+          "variable.is_on_fire = 0.0;",
+          "variable.sword_equipped = 0.0;",
+          "variable.third_person_right_arm_x_bob = 0.0;",
+          "variable.third_person_right_arm_z_bob = 0.0;"
+        ],
+        "pre_animation": [
+          "variable.third_person_render = (!variable.is_first_person && !variable.map_face_icon);",
+          "variable.is_on_fire = query.is_on_fire;",
+          "variable.sword_equipped = (query.get_equipped_item_name == 'netherite_sword' || query.get_equipped_item_name == 'diamond_sword' || query.get_equipped_item_name == 'golden_sword' || query.get_equipped_item_name == 'iron_sword' || query.get_equipped_item_name == 'stone_sword' || query.get_equipped_item_name == 'wooden_sword');",
+
+          "variable.enchanted_helmet = (query.armor_material_slot(0) == 1 || query.armor_material_slot(0) == 3);",
+          "variable.enchanted_chestplate = (query.armor_material_slot(1) == 1 || query.armor_material_slot(1) == 3);",
+          "variable.enchanted_leggings = (query.armor_material_slot(2) == 1 || query.armor_material_slot(2) == 3);",
+          "variable.enchanted_boots = (query.armor_material_slot(3) == 1 || query.armor_material_slot(3) == 3);",
+
+          "variable.helmet_layer_visible = 1.0;",
+          "variable.leg_layer_visible = 1.0;",
+          "variable.boot_layer_visible = 1.0;",
+          "variable.chest_layer_visible = 1.0;",
+          "variable.attack_body_rot_y = math.sin(math.sqrt(variable.attack_time) * 360.0) * 11.6;",
+          "variable.tcos0 = (math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;",
+          "variable.first_person_rotation_factor = math.sin((1 - variable.attack_time) * 180.0);",
+          "variable.map_angle = math.clamp(1 - variable.player_x_rotation / 45.1, 0.0, 1.0);",
+          "variable.item_use_normalized = query.main_hand_item_use_duration / query.main_hand_item_max_duration;",
+          "variable.third_person_right_arm_x_bob = math.sin(query.life_time * 76.77) * 2.865;",
+          "variable.third_person_right_arm_z_bob = math.cos(query.life_time * 103.23) * 2.865 + 2.865;"
+        ],
+        "animate": [
+          "root",
+          "java_fire.death.controller",
+          { "eating.controller": "variable.third_person_render" },
+          { "blocking": "variable.third_person_render && variable.sword_equipped && query.is_sneaking" },
+
+          { "fire_billboard": "variable.third_person_render && variable.is_on_fire && !query.is_in_ui" },
+          { "fire_billboard.paperdoll": "variable.third_person_render && variable.is_on_fire && query.is_in_ui" },
+
+          { "elytra.controller": "variable.third_person_render && query.armor_texture_slot(1) == 5" },
+          { "attack.rotations_rightarm": "variable.third_person_render" },
+          { "player.rightitem": "variable.third_person_render" },
+          { "first_person_attack_rotation": "variable.is_first_person" }
+        ]
+      },
+      "animations": {
+      	"java_fire.death.controller": "controller.animation.player.java_fire.death",
+      	"java_fire.death": "animation.player.java_fire.death",
+      	"blocking": "animation.player.blocking",
+      	"fire_billboard": "animation.player.fire_billboard",
+        "fire_billboard.paperdoll": "animation.player.fire_billboard.paperdoll",
+        "emitter.controller": "controller.animation.emitter",
+
+        "eating.controller": "controller.animation.eating",
+        "eating.attack": "animation.player.attack.rotations.eating",
+        "eating.attack.rightarm": "animation.player.attack.rotations_rightarm.eating",
+        "attack.rotations_rightarm": "animation.player.attack.rotations_rightarm",
+        "player.rightitem": "animation.player.rightitem",
+        "attack.rotations": "animation.player.attack.rotations",
+        "attack.rotations.blockhit": "animation.player.attack.rotations.blockhit",
+
+        "elytra.controller": "controller.animation.elytra.player.default",
+        "normal": "animation.player.elytra.normal",
+        "player.gliding": "animation.player.elytra.gliding",
+        "player.sleeping": "animation.player.elytra.sleeping",
+        "player.swimming": "animation.player.elytra.swimming",
+        "player.sneaking": "animation.player.elytra.sneaking",
+
+        "root": "controller.animation.player.root",
+        "base_controller": "controller.animation.player.base",
+        "hudplayer":  "controller.animation.player.hudplayer",
+        "humanoid_base_pose": "animation.humanoid.base_pose",
+        "look_at_target": "controller.animation.humanoid.look_at_target",
+        "look_at_target_ui": "animation.player.look_at_target.ui",
+        "look_at_target_default": "animation.humanoid.look_at_target.default",
+        "look_at_target_gliding": "animation.humanoid.look_at_target.gliding",
+        "look_at_target_swimming": "animation.humanoid.look_at_target.swimming",
+        "look_at_target_inverted": "animation.player.look_at_target.inverted",
+        "cape": "animation.player.cape",
+        "move.arms": "animation.player.move.arms",
+        "move.legs": "animation.player.move.legs",
+        "swimming": "animation.player.swim",
+        "swimming.legs": "animation.player.swim.legs",
+        "riding.arms": "animation.player.riding.arms",
+        "riding.legs": "animation.player.riding.legs",
+        "holding": "animation.player.holding",
+        "brandish_spear": "animation.humanoid.brandish_spear",
+        "charging": "animation.humanoid.charging",
+        "attack.positions": "animation.player.attack.positions",
+        // Solaria & Prokits St.
+        "sneaking": "animation.player.sneaking",
+        "bob": "animation.player.bob",
+        "damage_nearby_mobs": "animation.humanoid.damage_nearby_mobs",
+        "fishing_rod": "animation.humanoid.fishing_rod",
+        "skeleton_attack": "animation.skeleton.attack",
+        "sleeping": "animation.player.sleeping",
+        "first_person_base_pose": "animation.player.first_person.base_pose",
+        "first_person_empty_hand": "animation.player.first_person.empty_hand",
+        "first_person_swap_item": "animation.player.first_person.swap_item",
+        "first_person_attack_controller": "controller.animation.player.first_person_attack",
+        "first_person_attack_rotation": "animation.player.first_person.attack_rotation",
+        "first_person_vr_attack_rotation": "animation.player.first_person.vr_attack_rotation",
+        "first_person_map_controller": "controller.animation.player.first_person_map",
+        "first_person_map_hold": "animation.player.first_person.map_hold",
+        "first_person_map_hold_attack": "animation.player.first_person.map_hold_attack",
+        "first_person_map_hold_off_hand": "animation.player.first_person.map_hold_off_hand",
+        "first_person_map_hold_main_hand": "animation.player.first_person.map_hold_main_hand",
+        "first_person_crossbow_equipped": "animation.player.first_person.crossbow_equipped",
+        "third_person_crossbow_equipped": "animation.player.crossbow_equipped",
+        "third_person_bow_equipped": "animation.player.bow_equipped",
+        "crossbow_hold": "animation.player.crossbow_hold",
+        "crossbow_controller": "controller.animation.player.crossbow",
+        "shield_block_main_hand": "animation.player.shield_block_main_hand",
+        "shield_block_off_hand": "animation.player.shield_block_off_hand",
+        "blink": "controller.animation.persona.blink"
+      },
+      "render_controllers": [
+        { "controller.render.player.first_person": "variable.is_first_person" },
+        { "controller.render.player.third_person": "variable.third_person_render" },
+        { "controller.render.player.map": "variable.map_face_icon" },
+
+        { "controller.render.player.armor.helmet": "variable.third_person_render" },
+        { "controller.render.player.armor.chestplate": "variable.third_person_render" },
+        { "controller.render.player.armor.leggings": "variable.third_person_render" },
+        { "controller.render.player.armor.boots": "variable.third_person_render" },
+
+        { "controller.render.player.java_fire": "variable.third_person_render && variable.is_on_fire" }
+      ],
+      "enable_attachables": false
+    }
+  }
+}

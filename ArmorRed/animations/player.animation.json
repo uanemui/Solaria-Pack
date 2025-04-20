@@ -1,0 +1,330 @@
+{
+	"format_version" : "1.8.0",
+	"animations" : {
+
+		"animation.player.attack.rotations.eating": {
+			"loop": true,
+			"animation_length": 1.0,
+			"anim_time_update": "query.anim_time + query.delta_time * 4.625",
+			"bones": {
+				"body": {
+					"rotation": [ 0.0, "math.sin(math.sqrt(query.anim_time) * 360.0) * 11.6", "query.is_sneaking * ( -0.4 * (math.sin(math.sqrt(query.anim_time) * 360.0) * 11.6))" ]
+				},
+				"leftArm": {
+					"rotation": ["math.sin(math.sqrt(query.anim_time) * 360.0) * 11.6", 0.0, 0.0 ]
+				}
+			}
+		},
+		// Solaria & Prokits St.
+		"animation.player.attack.rotations_rightarm.eating": {
+			"loop": true,
+			"animation_length": 0.3,
+			"anim_time_update": "math.mod(query.anim_time + query.delta_time * 1.3889, 1.0)",
+			"bones": {
+				"rightArm": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.01": ["-25 + (query.head_x_rotation(0) * 0.44)", "18.5 + (query.head_x_rotation(0) * 0.24)", -1],
+						"0.023": ["-58 + (query.head_x_rotation(0) * 0.42)", "28.5 + (query.head_x_rotation(0) * 0.22)", -4],
+						"0.045": ["-69 + (query.head_x_rotation(0) * 0.42)", "18.5 + (query.head_x_rotation(0) * 0.2)", -6],
+						"0.08": ["-82.5 + (query.head_x_rotation(0) * 0.41)", "12 + (query.head_x_rotation(0) * 0.18)", -11],
+						"0.12": ["-58 + (query.head_x_rotation(0) * 0.4)", "-14.5 + (query.head_x_rotation(0) * 0.14)", -22],
+						"0.16": ["-39 + (query.head_x_rotation(0) * 0.37)", "-26.5 + (query.head_x_rotation(0) * 0.1)", -21.5],
+						"0.19": ["-34 + (query.head_x_rotation(0) * 0.36)", "-23.5 + (query.head_x_rotation(0) * 0.09)", -21],
+						"0.22": ["-25.5 + (query.head_x_rotation(0) * 0.34)", "-21.5 + (query.head_x_rotation(0) * 0.08)", -20],
+						"0.26": ["-12.5 + (query.head_x_rotation(0) * 0.27)", "-14 + (query.head_x_rotation(0) * 0.06)", -7],
+						"0.28": ["-5 + (query.head_x_rotation(0) * 0.24)", "-5 + (query.head_x_rotation(0) * 0.04)", -3.5],
+						"0.29": ["-3 + (query.head_x_rotation(0) * 0.21)", "-1.5 + (query.head_x_rotation(0) * 0.02)", -1],
+						"0.3": [0, 0, 0]
+					}
+				}
+			}
+		},
+
+		"animation.player.fire_billboard": {
+			"loop": true,
+			"bones": {
+				"fire_1": {
+					"rotation": [ 0.0, "query.camera_rotation(1) - query.body_y_rotation", 0.0 ],
+					"scale": [1.25, 1.15, 1.0]
+				},
+				"fire_2": {
+					"rotation": [ 0.0, "query.camera_rotation(1) - query.body_y_rotation", 0.0 ],
+					"scale": [1.1, 1.2, 1.0]
+				},
+				"fire_3": {
+					"rotation": [ 0.0, "query.camera_rotation(1) - query.body_y_rotation", 0.0 ],
+					"scale": [0.9, 1.15, 1.0]
+				},
+				"fire_4": {
+					"rotation": [ 0.0, "query.camera_rotation(1) - query.body_y_rotation", 0.0 ],
+					"scale": [0.8, 1.15, 1.0]
+				}
+			}
+		},
+		"animation.player.fire_billboard.paperdoll": {
+			"loop": true,
+			"bones": {
+				"fire_1": {
+					"rotation": [ 0.0, "-this", 0.0 ],
+					"scale": [1.25, 1.15, 1.0]
+				},
+				"fire_2": {
+					"rotation": [ 0.0, "-this", 0.0 ],
+					"scale": [1.1, 1.2, 1.0]
+				},
+				"fire_3": {
+					"rotation": [ 0.0, "-this", 0.0 ],
+					"scale": [0.9, 1.15, 1.0]
+				},
+				"fire_4": {
+					"rotation": [ 0.0, "-this", 0.0 ],
+					"scale": [0.8, 1.15, 1.0]
+				}
+			}
+		},
+		"animation.player.java_fire.death" : {
+			"loop": true,
+			"animation_length": 1.1,
+            "bones" : {
+                "fire_1" : {
+                    "rotation" : [ 0.0, 0.0, "math.min(math.sqrt(math.max(0.0, query.anim_time * 20.0 - 0.484) / 20.0 * 1.6), 1.0) * -90.0" ]
+                },
+                "fire_2" : {
+                    "rotation" : [ 0.0, 0.0, "math.min(math.sqrt(math.max(0.0, query.anim_time * 20.0 - 0.484) / 20.0 * 1.6), 1.0) * -90.0" ]
+                },
+                "fire_3" : {
+                    "rotation" : [ 0.0, 0.0, "math.min(math.sqrt(math.max(0.0, query.anim_time * 20.0 - 0.484) / 20.0 * 1.6), 1.0) * -90.0" ]
+                },
+                "fire_4" : {
+                    "rotation" : [ 0.0, 0.0, "math.min(math.sqrt(math.max(0.0, query.anim_time * 20.0 - 0.484) / 20.0 * 1.6), 1.0) * -90.0" ]
+                }
+            }
+        },
+		"animation.player.blocking": {
+			"loop": true,
+			"bones": {
+				"rightarm": {
+					"rotation": [ -36.0, 0.0, 0.0 ]
+				},
+				"rightitem": {
+					"rotation": [ 50.0, -33.0, -75.0 ],
+					"position": [ 0.5, 0.15, -2.4 ]
+				}
+			}
+		},
+		"animation.player.attack.rotations_rightarm": {
+			"loop": true,
+			"animation_length": 0.3,
+			"anim_time_update": "variable.attack_time * 0.3",
+			"bones": {
+				"rightArm": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.023": ["-58 + (query.head_x_rotation(0) * 0.42)", "28.5 + (query.head_x_rotation(0) * 0.22)", -4],
+						"0.045": ["-69 + (query.head_x_rotation(0) * 0.42)", "18.5 + (query.head_x_rotation(0) * 0.2)", -6],
+						"0.08": ["-87.5 + (query.head_x_rotation(0) * 0.41)", "12 + (query.head_x_rotation(0) * 0.18)", -11],
+						"0.12": ["-58 + (query.head_x_rotation(0) * 0.4)", "-14.5 + (query.head_x_rotation(0) * 0.14)", -22],
+						"0.17": ["-39 + (query.head_x_rotation(0) * 0.37)", "-26.5 + (query.head_x_rotation(0) * 0.1)", -21.5],
+						"0.22": ["-25.5 + (query.head_x_rotation(0) * 0.34)", "-21.5 + (query.head_x_rotation(0) * 0.08)", -20],
+						"0.26": ["-12.5 + (query.head_x_rotation(0) * 0.27)", "-14 + (query.head_x_rotation(0) * 0.06)", -7],
+						"0.28": ["-5 + (query.head_x_rotation(0) * 0.24)", "-5 + (query.head_x_rotation(0) * 0.04)", -3.5],
+						"0.3": [0, 0, 0]
+					}
+				}
+			}
+		},
+		"animation.player.rightitem": {
+			"loop": true,
+			"bones": {
+				"rightitem": {
+					"rotation": [ 0.0, "((query.get_equipped_item_name == 'bow') && !query.is_using_item) ? -27.0 : (((query.get_equipped_item_name == 'bow') && query.is_using_item) ? -18.0 : 0.0)", 0.0 ],
+					"position": [ "(query.get_equipped_item_name == 'bow') * -1.0", 0.0, "(query.get_equipped_item_name == 'bow') * 0.1" ],
+					"scale" : 0.96
+				}
+			}
+		},
+		
+		"animation.player.attack.rotations": {
+			"loop": true,
+			"bones": {
+				"body": {
+					"rotation": [ 0.0, "variable.attack_body_rot_y", "query.is_sneaking * ( -0.4 * (variable.attack_body_rot_y))" ]
+				},
+				"leftArm": {
+					"rotation": ["variable.attack_body_rot_y", 0.0, 0.0 ]
+				}
+			}
+		},
+		"animation.player.attack.rotations.blockhit": {
+			"loop": true,
+			"bones": {
+				"body": {
+					"rotation": [ 0.0, "variable.attack_body_rot_y", 0.0 ]
+				},
+				"leftArm": {
+					"rotation": ["variable.attack_body_rot_y", 0.0, 0.0 ]
+				}
+			}
+		},
+
+		"animation.player.bob": {
+			"loop": true,
+			"bones": {
+				"leftArm": {
+					"rotation": ["-variable.third_person_right_arm_x_bob", 0.0, "-variable.third_person_right_arm_z_bob"]
+				},
+				"rightArm": {
+					"rotation": ["variable.third_person_right_arm_x_bob", 0.0, "variable.third_person_right_arm_z_bob"]
+				}
+			}
+		},
+		"animation.player.bob.stationary": {
+			"loop": true,
+			"bones": {
+				"leftArm": {
+					"rotation": ["variable.third_person_left_arm_x_bob", 0.0, "variable.third_person_left_arm_z_bob"]
+				},
+				"rightArm": {
+					"rotation": ["variable.third_person_right_arm_x_bob", 0.0, "variable.third_person_right_arm_z_bob"]
+				}
+			}
+		},
+		"animation.player.holding" : {
+			"loop" : true,
+			"bones" : {
+				"leftarm" : {
+					"rotation" : [ "variable.is_holding_left ? -18.0 : 0.0", 0.0, 0.0 ]
+				},
+				"rightarm" : {
+					"rotation" : [ "variable.is_holding_right ? -18.0 : 0.0", 0.0, 0.0 ]
+				}
+			}
+		},
+		"animation.player.bow_equipped": {
+			"loop": true,
+			"bones": {
+				"leftArm": {
+					"rotation": ["-90.0 + query.target_x_rotation - query.is_sneaking * 15.0 - this", "27.5 + query.target_y_rotation", 0]
+				},
+				"rightArm": {
+					"rotation": ["-90.0 + query.target_x_rotation - query.is_sneaking * 15.0 - this", "-5.0 + query.target_y_rotation", 0]
+				},
+				"rightItem": {
+					"rotation": [0, -10, 0]
+				}
+			}
+		},
+		"animation.player.crossbow_equipped": {
+			"loop": true,
+			"bones": {
+				"leftArm": {
+					"rotation": ["-this - 65.0 - (1.0 - variable.item_use_normalized) * 5.0", "-this + (1.0 - variable.item_use_normalized) * 30.0", "-this + 20.0 + (1.0 - variable.item_use_normalized) * 10.0"],
+					"position": [0, 0, 0.5]
+				},
+				"rightArm": {
+					"rotation": ["- 60.0 - this", "- 45.0 - this", "- 2.5 - this"]
+				},
+				"rightItem": {
+					"rotation": [0, 0, 0],
+					"position": [0, -1, 0]
+				}
+			}
+		},
+		"animation.player.crossbow_hold": {
+			"loop": true,
+			"bones": {
+				"leftArm": {
+					"rotation": ["query.is_swimming ? 0.0 : -93.0 + query.target_x_rotation - query.is_sneaking * 27.0 -this", "query.is_swimming ? 0.0 : 42.0 + math.clamp(query.target_y_rotation, -45.0, 5.0) -this", "query.is_sneaking * -15.0"]
+				},
+				"rightArm": {
+					"rotation": ["query.is_swimming ? 0.0 : -93.0 + query.target_x_rotation - query.is_sneaking * 27.0 -this", "query.is_swimming ? 0.0 : math.clamp(query.target_y_rotation, -60.0, 45.0) -this", 0]
+				},
+				"rightItem": {
+					"rotation": [0, 0, 0],
+					"position": [0, -1, 0]
+				}
+			}
+		},
+		"animation.player.shield_block_main_hand": {
+			"loop": true,
+			"bones": {
+				"rightArm": {
+					"rotation": [-40, -28, 10]
+				},
+				"rightItem": {
+					"rotation": [-30, -50, -35],
+					"position": [-2, -4, -1]
+				}
+			}
+		},
+		"animation.player.shield_block_off_hand": {
+			"loop": true,
+			"bones": {
+				"leftArm": {
+					"rotation": [-40, 28, -10]
+				},
+				"rightArm": {
+					"rotation": ["(query.get_equipped_item_name('main_hand') == 'shield') ? -40.0 : 0.0", "(query.get_equipped_item_name('main_hand') == 'shield') ? -28.0 : 0.0", "(query.get_equipped_item_name('main_hand') == 'shield') ? 10.0 : 0.0"]
+				},
+				"rightItem": {
+					"position": ["(query.get_equipped_item_name('main_hand') == 'shield') ? 0.6 : 0.0", "(query.get_equipped_item_name('main_hand') == 'shield') ? -1.2 : 0.0", "(query.get_equipped_item_name('main_hand') == 'shield') ? 0.0 : 0.0"]
+				}
+			}
+		},
+		"animation.player.sneaking" : {
+			"loop" : true,
+			"bones" : {
+				"body" : {
+					"position" : [ 0.0, -2.2, 0.8 ]
+				},
+				"head" : {
+					"position" : [ 0.0, -1.0, 0.0 ]
+				},
+				"leftarm" : {
+					"rotation" : [ -5.7, 0.0, 0.0 ]
+				},
+				"leftleg" : {
+					"rotation" : [ -28.0, 0.0, 0.0 ]
+				},
+				"rightarm" : {
+					"rotation" : [ -5.7, 0.0, 0.0 ]
+				},
+				"rightleg" : {
+					"rotation" : [ -28.0, 0.0, 0.0 ]
+				},
+				"root" : {
+					"position" : [ 0.0, 1.25, 9.0 ],
+					"rotation" : [ "28.0 - this", 0.0, 0.0 ]
+				}
+			}
+		},
+		"animation.player.swim" : {
+			"animation_length" : 1.3,
+			"loop" : true,
+			"override_previous_animation" : true,
+			"bones" : {
+				"leftarm" : {
+					"rotation" : {
+						"0" : [ 0.0, 180.0, 180.0 ],
+						"0.7" : [ 0.0, 180.0, 287.2 ],
+						"1.1" : [ 90.0, 180.0, 180.0 ],
+						"1.3" : [ 0.0, 180.0, 180.0 ]
+					}
+				},
+				"rightarm" : {
+					"rotation" : {
+						"0" : [ 0.0, 180.0, -180.0 ],
+						"0.7" : [ 0.0, 180.0, -287.2 ],
+						"1.1" : [ 90.0, 180.0, -180.0 ],
+						"1.3" : [ 0.0, 180.0, -180.0 ]
+					}
+				},
+				"root" : {
+					"position" : [ 0.0, "(math.sin(query.target_x_rotation) * 17.0 + 5.0) * variable.swim_amount", "(math.cos(query.target_x_rotation) * 17.0) * variable.swim_amount" ],
+					"rotation" : [ "variable.swim_amount * (90.0 + query.target_x_rotation)", 0.0, 0.0 ]
+				}
+			}
+		}
+	}
+}
