@@ -1,0 +1,30 @@
+{
+	"format_version": 1,
+	"header": {
+		"uuid": "8dcfaa49-f998-472a-8167-314d9a69e469",
+		"name": "§l§bSolaria NoChatBg\n",
+		"version": [
+			0,
+			0,
+			1
+		],
+		"min_engine_version": [
+			0,
+			0,
+			1
+		],
+		"description": "Removed chat background.\n§7By uname, Solaria & Prokits St.\n"
+	},
+	"modules": [
+		{
+			"description": "§l§bSolaria玩家社区QQ群: 921302903",
+			"version": [
+				0,
+				0,
+				1
+			],
+			"uuid": "79f9f7c6-aa11-4c86-a7cb-dda224f96247",
+			"type": "resources"
+		}
+	]
+}

@@ -1,0 +1,30 @@
+{
+	"format_version": 1,
+	"header": {
+		"uuid": "ce2dc2ec-0bcc-4b0e-9bca-cbefc3f1ff63",
+		"name": "§l§bSolaria NoItemNameBg\n",
+		"version": [
+			0,
+			0,
+			1
+		],
+		"min_engine_version": [
+			0,
+			0,
+			1
+		],
+		"description": "Removed item name background.\n§7By uname, Solaria w& Prokits St.\n"
+	},
+	"modules": [
+		{
+			"description": "§l§bSolaria玩家社区QQ群: 921302903",
+			"version": [
+				0,
+				0,
+				1
+			],
+			"uuid": "2b60b299-5d0f-4389-9a75-1e77d355c6bf",
+			"type": "resources"
+		}
+	]
+}

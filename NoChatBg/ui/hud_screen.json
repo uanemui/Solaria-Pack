@@ -1,0 +1,19 @@
+{
+  "namespace": "hud",
+  "anim_chat_bg_alpha": {
+    "anim_type": "alpha",
+    "easing": "in_quart",
+    "destroy_at_end": "chat_grid_item",
+    "duration": 1,
+    "from": 0,
+    "to": 0
+  },
+  "anim_chat_bg_wait": {
+    "anim_type": "wait",
+    "duration": "$chat_item_lifetime",
+    "next": "@hud.anim_chat_bg_alpha"
+  },
+  "chat_grid_item/chat_background": {
+          "alpha": 0
+  }
+}
