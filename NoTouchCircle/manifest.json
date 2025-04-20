@@ -1,0 +1,17 @@
+{
+   "format_version" : 1,
+   "header" : {
+      "description" : "Removed touch circle\n§7By uname, Solaria & Prokits St.",
+      "name" : "§l§bSolaria NoTouchCircle",
+      "uuid" : "8853c6f1-2083-4a42-8389-d51f509bb403",
+      "version" : [ 1,0,0 ]
+   },
+   "modules" : [
+      {
+         "description" : "§l§bSolaria玩家社区QQ群: 921302903",
+         "type" : "resources",
+         "uuid" : "993771d4-025a-4370-96e5-176a803d8922",
+         "version" : [ 1, 0, 0 ]
+      }
+   ]
+}
