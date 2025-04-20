@@ -1,0 +1,28 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.player.java_fire.death": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "cancel_animation": "query.is_alive == 0.0"
+            }
+          ]
+        },
+        // Solaria & Prokits St.
+        "cancel_animation": {
+          "animations": [
+          	"java_fire.death"
+          ],
+          "transitions": [
+            {
+              "default": "query.is_alive == 1.0 && query.all_animations_finished == 1.0"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+   "format_version" : 1,
+   "header" : {
+      "description" : "§7By uname, Solaria & Prokits St.",
+      "name" : "§l§bSolaria NoAttackSound",
+      "uuid" : "6309ba3b-848d-47e1-9948-3062c8b345ec",
+      "version" : [ 1,0,0 ]
+   },
+   "modules" : [
+      {
+         "description" : "§l§bSolaria玩家社区QQ群: 921302903",
+         "type" : "resources",
+         "uuid" : "79b9fbba-69a8-4516-8e10-e2654654f27e",
+         "version" : [ 1, 0, 0 ]
+      }
+   ]
+}

@@ -1,0 +1,17 @@
+{
+   "format_version" : 1,
+   "header" : {
+      "description" : "Removed hud buttons.\n§7By uname, Solaria & Prokits St.",
+      "name" : "§l§bSolaria HideButtons",
+      "uuid" : "6dfce133-b255-4e00-8db6-2ac3f3e15fb2",
+      "version" : [ 1,0,0 ]
+   },
+   "modules" : [
+      {
+         "description" : "§l§bSolaria玩家社区QQ群: 921302903",
+         "type" : "resources",
+         "uuid" : "d27467fd-6209-43f6-997d-a9b268722617",
+         "version" : [ 1, 0, 0 ]
+      }
+   ]
+}

@@ -1,0 +1,30 @@
+{
+	"format_version": 1,
+	"header": {
+		"uuid": "6dfce133-b255-4e00-8db6-2ac3f3e15fb2",
+		"name": "§l§bSolaria ArmorRed\n",
+		"version": [
+			0,
+			0,
+			1
+		],
+		"min_engine_version": [
+			0,
+			0,
+			1
+		],
+		"description": "Armor changed to red while you hurts.\n§7By uname, Solaria & Prokits St.\n"
+	},
+	"modules": [
+		{
+			"description": "§l§bSolaria玩家社区QQ群: 921302903",
+			"version": [
+				0,
+				0,
+				1
+			],
+			"uuid": "d27467fd-6209-43f6-997d-a9b268722617",
+			"type": "resources"
+		}
+	]
+}
