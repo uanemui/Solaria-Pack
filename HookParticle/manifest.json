@@ -1,0 +1,30 @@
+{
+	"format_version": 1,
+	"header": {
+		"uuid": "5033c9ce-408d-44b4-acc9-b4a3514ac306",
+		"name": "§l§bSolaria HookParticle\n",
+		"version": [
+			0,
+			0,
+			1
+		],
+		"min_engine_version": [
+			0,
+			0,
+			1
+		],
+		"description": "Add particles to hook throwing.\n§7By uname, Solaria & Prokits St.\n"
+	},
+	"modules": [
+		{
+			"description": "§l§bSolaria玩家社区QQ群: 921302903",
+			"version": [
+				0,
+				0,
+				1
+			],
+			"uuid": "b436d680-23da-4bdb-b1df-ce87845a031e",
+			"type": "resources"
+		}
+	]
+}
