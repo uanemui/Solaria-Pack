@@ -30,11 +30,6 @@
 
 ---
 
-### 优化汉字渲染
-原版的汉字渲染一言难尽，使用这个包可以改善汉字的渲染，使其更加平滑易读。
-
----
-
 ### [ArmorRed 盔甲红](https://github.com/uanemui/Solaria-Pack/tree/main/ArmorRed)
 受击时，盔甲会一并变红。
 
